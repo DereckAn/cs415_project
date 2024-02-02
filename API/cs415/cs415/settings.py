@@ -83,7 +83,7 @@ DATABASES = {
         'NAME' : 'cs415website',
         'USER' : 'apiuser',
         'PASSWORD' : 'apiuserpass',
-        'HOST' : 'ec2-54-89-199-193.compute-1.amazonaws.com',
+        'HOST' : '3.91.6.80',
         'PORT' : '3306'
 
     }
