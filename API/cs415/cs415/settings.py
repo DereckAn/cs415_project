@@ -83,7 +83,7 @@ DATABASES = {
         'NAME' : 'cs415website',
         'USER' : 'apiuser',
         'PASSWORD' : 'apiuserpass',
-        'HOST' : '3.91.6.80',
+        'HOST' : '44.207.196.213',
         'PORT' : '3306'
 
     }
@@ -92,6 +92,8 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+
+JWT_AUTH = False
 
 AUTH_PASSWORD_VALIDATORS = [
     {

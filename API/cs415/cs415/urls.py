@@ -21,4 +21,8 @@ from cs415 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', views.UserAPIView.as_view()),
+    path('interviewfriends/', views.InterviewFriendAPIView.as_view()),
+    path('ima2codes/', views.Ima2CodeAPIView.as_view()),
+    path('chats/', views.ChatAPIView.as_view()),
+    
 ]
