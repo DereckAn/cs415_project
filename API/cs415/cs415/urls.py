@@ -24,5 +24,6 @@ urlpatterns = [
     path('interviewfriends/', views.InterviewFriendAPIView.as_view()),
     path('ima2codes/', views.Ima2CodeAPIView.as_view()),
     path('chats/', views.ChatAPIView.as_view()),
+    path('login/', views.Login.as_view())
     
 ]
