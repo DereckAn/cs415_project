@@ -55,7 +55,7 @@ class JWTAuthentication(authentication.BaseAuthentication):
         }
 
         # Encode the JWT with your secret key
-        jwt_token = jwt.encode(payload, key='valhalla', algorithm='HS256')
+        jwt_token = jwt.encode(payload, key='elmalcriado', algorithm='HS256')
 
         return jwt_token
 

@@ -19,9 +19,14 @@ CREATE TABLE interview_friend (
 );
 
 
+-- Comandos para facilitarme la vida 
+-- python3 manage.py runserver
+--  cd cs415_project/API/cs415/
+
 -- INSERT INTO user (first_name,last_name,email, password, created_date)
 --     VALUES (
 --         'Dereck',
+
 --         'Angeles',
 --         'holadereck@gmail.com',
 --         '12345',

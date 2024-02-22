@@ -59,12 +59,12 @@ class Login(APIView):
                              'error': 'User with this email does not exist'},
                              status=status.HTTP_404_NOT_FOUND)
 
-        check_pass = User.objects.filter(email = email, pass_word=password).exists()
+        check_pass = User.objects.filter(email = email, password=password).exists()
         if check_pass == False:
             return Response({'success': False,
                              'error': 'Incorrect password for user'},
                              status=status.HTTP_401_UNAUTHORIZED)
-        user = User.objects.get(email = email, pass_word=password)
+        user = User.objects.get(email = email, password=password)
 
         # add last login to User table
         serializer = UserSerializer(user, data={'last_login': str(datetime.datetime.now())}, partial=True)
@@ -94,3 +94,26 @@ class GetSingleUserAPIView(APIView):
         user_serial = UserSerializer(user)
         user_data.update({"user": user_serial.data})
         return Response(user_data)
+    
+class GetSingleUserInfoAPIView(APIView):
+    def get(self,request,id):
+        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
+        user = User.objects.get(pk=id)
+        info = Userinfo.objects.filter(user=user)
+        serializer = UserinfoSerializer(info, many=True)
+        return Response({'info': serializer.data})
+    
+# class GetSingleUserAPIView(APIView):
+#     def get(self,request,id):
+#         if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
+#         user_data = {}
+#         user = User.objects.get(pk=id)
+#         user_serial = UserSerializer(user)
+#         user_data.update({"user": user_serial.data})
+#         addresses = AddressSerializerGet(Useraddress.objects.filter(user=user), many=True)
+#         user_data.update({"addresses": addresses.data})
+#         info = UserinfoSerializer(Userinfo.objects.filter(user=user), many=True)
+#         user_data.update({"info": info.data})
+#         phone = PhoneSerializerGet(Userphone.objects.filter(user=user).select_related(), many=True)
+#         user_data.update({"phones": phone.data})
+#         return Response(user_data)

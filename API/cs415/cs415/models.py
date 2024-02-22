@@ -55,3 +55,19 @@ class Chat(models.Model):
     
     def __str__(self):
         return f'{self.question} {self.response}'
+
+
+class Userinfo(models.Model):
+    user_info_id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, models.DO_NOTHING)
+    profile_bio = models.CharField(max_length=500, blank=True, null=True)
+    profile_picture = models.CharField(max_length=100, blank=True, null=True)
+    modified_date = models.DateTimeField(blank=True, null=True)
+    created_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'UserInfo'
+
+    def __str__(self):
+        return f'{self.user.first_name} {self.user.last_name} - {self.profile_bio}'
