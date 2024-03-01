@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-&-jmn*$#)97b0lc=a@b$$91y%e#*eg@-79$v)yvq7pcz)@#3l6
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CORS_ALLOW_ALL_ORIGINS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -73,11 +75,11 @@ TEMPLATES = [
 
 
 CORS_ALLOW_ALL_ORIGINS = True  # Si quieres permitir todos los orígenes
-# o
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://127.0.0.1:8000"
-] 
+# # o
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:8000",
+#     "http://127.0.0.1:8000"
+# ] 
 
 WSGI_APPLICATION = 'cs415.wsgi.application'
 
