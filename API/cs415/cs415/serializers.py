@@ -21,6 +21,7 @@ class ChatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chat
         fields = '__all__'
+        
 class UserinfoSerializer(serializers.ModelSerializer):
     class Meta:
         model=Userinfo

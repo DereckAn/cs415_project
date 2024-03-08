@@ -50,16 +50,6 @@ class GetSingleUserAPIView(APIView):
         user = User.objects.get(pk=id)
         user_serial = UserSerializer(user)
         user_data.update({"user": user_serial.data})
-        return Response(user_data)
-    
-
-class GetSingleUserAPIView(APIView):
-    def get(self,request,id):
-        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
-        user_data = {}
-        user = User.objects.get(pk=id)
-        user_serial = UserSerializer(user)
-        user_data.update({"user": user_serial.data})
         info = UserinfoSerializer(Userinfo.objects.filter(user=user), many=True)
         user_data.update({"info": info.data})
         return Response(user_data)
@@ -71,6 +61,22 @@ class GetSingleUserInfoAPIView(APIView):
         info = Userinfo.objects.filter(user=user)
         serializer = UserinfoSerializer(info, many=True)
         return Response({'info': serializer.data})
+
+class UserInfoAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
+        serializer = UserinfoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'data': serializer.data})
+        else:
+            return Response({'errors': serializer.errors},
+                                status=status.HTTP_400_BAD_REQUEST)
+    def get(self,request):
+        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
+        user_infos = Userinfo.objects.all()
+        serializer = UserinfoSerializer(user_infos, many=True)
+        return Response({'user_infos': serializer.data})
     
 class Login(APIView):
     def post(self, request):
@@ -107,6 +113,9 @@ class Login(APIView):
             }
             return Response({'success': True,
                              'user_id': user.user_id,
+                            'first_name': user.first_name,
+                            'last_name': user.last_name,
+                            'email': user.email,
                              'token': jwt_token},
                              status=status.HTTP_200_OK)
         else:
