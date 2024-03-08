@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from cs415.models import User, InterviewFriend, Ima2Code, Chat
-from cs415.serializers import UserSerializer, InterviewFriendSerializer, Ima2CodeSerializer, ChatSerializer
+from cs415.models import User, InterviewFriend, Ima2Code, Chat, Userinfo
+from cs415.serializers import UserSerializer, InterviewFriendSerializer, Ima2CodeSerializer, ChatSerializer, UserinfoSerializer
 from cs415.settings import JWT_AUTH
 from cs415.authentication import JWTAuthentication
 import datetime
@@ -42,6 +42,35 @@ class ChatAPIView(APIView):
         chats = Chat.objects.all()
         serializer = ChatSerializer(chats, many=True)
         return Response({'chats': serializer.data})
+
+class GetSingleUserAPIView(APIView):
+    def get(self,request,id):
+        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
+        user_data = {}
+        user = User.objects.get(pk=id)
+        user_serial = UserSerializer(user)
+        user_data.update({"user": user_serial.data})
+        return Response(user_data)
+    
+
+class GetSingleUserAPIView(APIView):
+    def get(self,request,id):
+        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
+        user_data = {}
+        user = User.objects.get(pk=id)
+        user_serial = UserSerializer(user)
+        user_data.update({"user": user_serial.data})
+        info = UserinfoSerializer(Userinfo.objects.filter(user=user), many=True)
+        user_data.update({"info": info.data})
+        return Response(user_data)
+
+class GetSingleUserInfoAPIView(APIView):
+    def get(self,request,id):
+        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
+        user = User.objects.get(pk=id)
+        info = Userinfo.objects.filter(user=user)
+        serializer = UserinfoSerializer(info, many=True)
+        return Response({'info': serializer.data})
     
 class Login(APIView):
     def post(self, request):
@@ -84,36 +113,3 @@ class Login(APIView):
             return Response({'success': False,
                              'error': 'Invalid Login Credentials'},
                              status=status.HTTP_400_BAD_REQUEST)
-
-
-class GetSingleUserAPIView(APIView):
-    def get(self,request,id):
-        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
-        user_data = {}
-        user = User.objects.get(pk=id)
-        user_serial = UserSerializer(user)
-        user_data.update({"user": user_serial.data})
-        return Response(user_data)
-    
-class GetSingleUserInfoAPIView(APIView):
-    def get(self,request,id):
-        if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
-        user = User.objects.get(pk=id)
-        info = Userinfo.objects.filter(user=user)
-        serializer = UserinfoSerializer(info, many=True)
-        return Response({'info': serializer.data})
-    
-# class GetSingleUserAPIView(APIView):
-#     def get(self,request,id):
-#         if JWT_AUTH: JWTAuthentication.authenticate(self,request=request)
-#         user_data = {}
-#         user = User.objects.get(pk=id)
-#         user_serial = UserSerializer(user)
-#         user_data.update({"user": user_serial.data})
-#         addresses = AddressSerializerGet(Useraddress.objects.filter(user=user), many=True)
-#         user_data.update({"addresses": addresses.data})
-#         info = UserinfoSerializer(Userinfo.objects.filter(user=user), many=True)
-#         user_data.update({"info": info.data})
-#         phone = PhoneSerializerGet(Userphone.objects.filter(user=user).select_related(), many=True)
-#         user_data.update({"phones": phone.data})
-#         return Response(user_data)

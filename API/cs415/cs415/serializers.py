@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from cs415.models import User, InterviewFriend, Ima2Code, Chat
+from cs415.models import User, InterviewFriend, Ima2Code, Chat, Userinfo
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -21,4 +21,8 @@ class ChatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Chat
         fields = '__all__'
+class UserinfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Userinfo
+        fields='__all__'
         

@@ -25,9 +25,6 @@ SECRET_KEY = 'django-insecure-&-jmn*$#)97b0lc=a@b$$91y%e#*eg@-79$v)yvq7pcz)@#3l6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
-CORS_ALLOW_ALL_ORIGINS = ['*']
-CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -53,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    # 'corsheaders.middleware.CorsPostCsrfMiddleware',
 ]
 
 ROOT_URLCONF = 'cs415.urls'
@@ -73,13 +71,20 @@ TEMPLATES = [
     },
 ]
 
+# ALLOWED_HOSTS = ['*']
+# CORS_ALLOW_ALL_ORIGINS = ['*']
+# CORS_ORIGIN_ALLOW_ALL = True
+
 
 CORS_ALLOW_ALL_ORIGINS = True  # Si quieres permitir todos los orígenes
-# # o
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:8000",
-#     "http://127.0.0.1:8000"
-# ] 
+# o
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:8000",
+    "http://34.230.221.137", # Api 
+    "http://34.225.215.79", # website
+    "http://44.207.196.213", # mysql-server 
+] 
 
 WSGI_APPLICATION = 'cs415.wsgi.application'
 
