@@ -1,0 +1,9 @@
+version: "3"
+services:
+  cs415-api:
+    build: https://github.com/DereckAn/cs415_project.git#container:API/cs415
+    image: image_cs415_api
+    container_name: dc_cs415_api
+    restart: always
+    ports:
+      - 8080:80
