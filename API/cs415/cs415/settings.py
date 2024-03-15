@@ -80,7 +80,10 @@ CORS_ALLOW_ALL_ORIGINS = True  # Si quieres permitir todos los orígenes
 # o
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:80",
+    "http://localhost",
     "http://127.0.0.1:8000",
+    "http://127.0.0.1:8080", # docker
     "http://34.230.221.137", # Api 
     "http://34.225.215.79", # website
     "http://44.207.196.213", # mysql-server 
