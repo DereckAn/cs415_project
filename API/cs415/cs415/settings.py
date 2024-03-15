@@ -72,22 +72,22 @@ TEMPLATES = [
 ]
 
 # ALLOWED_HOSTS = ['*']
-# CORS_ALLOW_ALL_ORIGINS = ['*']
 # CORS_ORIGIN_ALLOW_ALL = True
 
 
 CORS_ALLOW_ALL_ORIGINS = True  # Si quieres permitir todos los orígenes
+CORS_ALLOW_ALL_ORIGINS = ['*']
 # o
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-    "http://localhost:80",
-    "http://localhost",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:8080", # docker
-    "http://34.230.221.137", # Api 
-    "http://34.225.215.79", # website
-    "http://44.207.196.213", # mysql-server 
-] 
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://localhost:80",
+#     "http://localhost",
+#     "http://127.0.0.1:8000",
+#     "http://127.0.0.1:8080", # docker
+#     "http://34.230.221.137", # Api 
+#     "http://34.225.215.79", # website
+#     "http://44.207.196.213", # mysql-server 
+# ] 
 
 WSGI_APPLICATION = 'cs415.wsgi.application'
 
