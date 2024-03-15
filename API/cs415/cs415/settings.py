@@ -72,7 +72,6 @@ TEMPLATES = [
 ]
 
 # ALLOWED_HOSTS = ['*']
-# CORS_ORIGIN_ALLOW_ALL = True
 
 
 CORS_ALLOW_ALL_ORIGINS = True  # Si quieres permitir todos los orígenes
@@ -88,6 +87,7 @@ CORS_ALLOW_ALL_ORIGINS = ['*']
 #     "http://34.225.215.79", # website
 #     "http://44.207.196.213", # mysql-server 
 # ] 
+CORS_ORIGIN_ALLOW_ALL = True
 
 WSGI_APPLICATION = 'cs415.wsgi.application'
 
