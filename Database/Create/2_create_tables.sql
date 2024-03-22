@@ -73,25 +73,25 @@ CREATE TABLE PageData (
     PRIMARY KEY (page_data_id)
 );
 
-CREATE TABLE chat (
-    fecha DATETIME,
-    question VARCHAR(255),
-    response VARCHAR(255),
-    user_id INT,
-);
+-- CREATE TABLE chat (
+--     fecha DATETIME,
+--     question VARCHAR(255),
+--     response VARCHAR(255),
+--     user_id INT,
+-- );
 
-CREATE TABLE ima2code (
-    ima VARCHAR(5000),
-    code VARCHAR(5000),
-    user_id INT
-);
+-- CREATE TABLE ima2code (
+--     ima VARCHAR(5000),
+--     code VARCHAR(5000),
+--     user_id INT
+-- );
 
-CREATE TABLE interview_friend (
-    name_interview VARCHAR(255),
-    question VARCHAR(5000),
-    response VARCHAR(5000),
-    user_id INT
-);
+-- CREATE TABLE interview_friend (
+--     name_interview VARCHAR(255),
+--     question VARCHAR(5000),
+--     response VARCHAR(5000),
+--     user_id INT
+-- );
 
 
 
