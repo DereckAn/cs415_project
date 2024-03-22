@@ -1,6 +1,6 @@
 USE cs415website;
 
-CREATE TABLE User (
+CREATE TABLE user (
   user_id int NOT NULL AUTO_INCREMENT,
   first_name varchar(25) NOT NULL,
   last_name varchar(30) NOT NULL,
@@ -64,13 +64,33 @@ CREATE TABLE UserPhone (
 );
 
 CREATE TABLE PageData (
-  page_data_id int NOT NULL AUTO_INCREMENT,
-  page_name varchar(150) NOT NULL,
-  page_title varchar(150) NOT NULL,
-  page_description text NOT NULL,
-  page_picture varchar(250) NOT NULL,
-  page_menu varchar(35) NOT NULL,
-  PRIMARY KEY (page_data_id)
+    page_data_id int NOT NULL AUTO_INCREMENT,
+    page_name varchar(150) NOT NULL,
+    page_title varchar(150) NOT NULL,
+    page_description text NOT NULL,
+    page_picture varchar(250) NOT NULL,
+    page_menu varchar(35) NOT NULL,
+    PRIMARY KEY (page_data_id)
+);
+
+CREATE TABLE chat (
+    fecha DATETIME,
+    question VARCHAR(255),
+    response VARCHAR(255),
+    user_id INT,
+);
+
+CREATE TABLE ima2code (
+    ima VARCHAR(5000),
+    code VARCHAR(5000),
+    user_id INT
+);
+
+CREATE TABLE interview_friend (
+    name_interview VARCHAR(255),
+    question VARCHAR(5000),
+    response VARCHAR(5000),
+    user_id INT
 );
 
 

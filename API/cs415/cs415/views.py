@@ -24,7 +24,6 @@ class UserAPIView(APIView):
         serializer = UserSerializer(users, many=True)
         return Response({'users': serializer.data})
     
-
 class InterviewFriendAPIView(APIView):
     def get(self,request):
         interviewfriends = InterviewFriend.objects.all()
