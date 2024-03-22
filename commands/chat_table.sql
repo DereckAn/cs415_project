@@ -22,6 +22,8 @@ CREATE TABLE interview_friend (
 -- Comandos para facilitarme la vida 
 --  cd cs415_project/API/cs415/
 -- python3 manage.py runserver
+--  docker compose up -d 
+-- docker compose down
 
 -- INSERT INTO user (first_name,last_name,email, password, created_date)
 --     VALUES (
