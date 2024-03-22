@@ -1,7 +1,7 @@
 USE cs415website;
 
 LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `User` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` VALUES (1,'Main','User','muser@email.com','12345','2024-01-18 10:15:03',1,'2024-02-28 09:59:07'),
     (2,'Willie','Nelson','willie.nelson@email.com','12345','2024-01-18 21:40:15',1,'2024-02-08 18:52:27'),
     (3,'James','Hetfield','jhetfield@email.com','12345','2024-01-25 05:12:45',1,'2024-02-27 15:09:51'),
@@ -18,7 +18,7 @@ INSERT INTO `user` VALUES (1,'Main','User','muser@email.com','12345','2024-01-18
     (14,'Thomas','Edison','tedison@email.com','12345','2024-02-09 00:42:45',1,'2024-02-28 09:59:07'),
     (15,'Albert','Einstein','aeinstein@email.com','12345','2024-02-09 00:44:42',1,'2024-02-28 09:59:07'),
     (16,'Jack','Frost','jfrost@email.com','12345','2024-02-09 00:47:24',1,'2024-02-28 09:59:07');
-/*!40000 ALTER TABLE `User` ENABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 LOCK TABLES `AddressType` WRITE;
