@@ -19,7 +19,7 @@ services:
       - 80:80
 
   cs415-database:
-    build: https://github.com/DereckAn/cs415_project.git#container:Database/create
+    build: https://github.com/DereckAn/cs415_project.git#container:Database
     image: image_cs415_database
     container_name: dc_cs415_database
     restart: always
