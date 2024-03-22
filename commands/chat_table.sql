@@ -24,6 +24,7 @@ CREATE TABLE interview_friend (
 -- python3 manage.py runserver
 --  docker compose up -d 
 -- docker compose down
+-- tail /var/log/apache2/error.log
 
 -- INSERT INTO user (first_name,last_name,email, password, created_date)
 --     VALUES (

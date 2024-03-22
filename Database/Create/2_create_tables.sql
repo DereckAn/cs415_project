@@ -30,7 +30,7 @@ CREATE TABLE UserAddress (
     country VARCHAR(30),
     address_type_id INT NOT NULL,
     PRIMARY KEY (user_address_id),
-    FOREIGN KEY (user_id) REFERENCES User(user_id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (address_type_id) REFERENCES AddressType(address_type_id)
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE UserInfo (
     modified_date DATETIME,
     created_date DATETIME,
     PRIMARY KEY (user_info_id),
-    FOREIGN KEY (user_id) REFERENCES User(user_id)
+    FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
 CREATE TABLE PhoneType (
@@ -59,7 +59,7 @@ CREATE TABLE UserPhone (
     created_date DATETIME,
     is_active BOOLEAN,
     PRIMARY KEY (user_phone_id),
-    FOREIGN KEY (user_id) REFERENCES User(user_id),
+    FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (phone_type_id) REFERENCES PhoneType(phone_type_id)
 );
 
